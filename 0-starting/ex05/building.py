@@ -25,9 +25,9 @@ def count_chars(text: str) -> None:
     print(f"The text contains {len(text)} characters:")
     print(f"{upper} upper letters")
     print(f"{lower} lower letters")
-    print(f"{digits} punctuation marks")
-    print(f"{space} spaces")
     print(f"{punct} digits")
+    print(f"{space} spaces")
+    print(f"{digits} punctuation marks")
 
 def main() -> None:
     try:
