@@ -1,61 +1,52 @@
-"""
-building.py
+import sys
 
-A simple program that counts different character types in a given text.
-
-The program:
-- Asks the user to input a line of text.
-- Counts the total characters, uppercase letters, lowercase letters,
-  punctuation marks, spaces, and digits.
-- Prints the result in a formatted way.
-
-Rules followed:
-- No code in the global scope.
-- Has a main() entry point.
-- All exceptions are handled.
-- Code follows PEP 8 (flake8) standards.
-"""
-
-import string
+PUNCT = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
 
-def count_characters(text: str) -> None:
-    """
-    Count and display different character types in the given text.
+def count_chars(text: str) -> None:
+    upper = 0
+    lower = 0
+    digits = 0
+    punct = 0
+    space = 0
 
-    Args:
-        text (str): The input string to analyze.
-
-    Returns:
-        None
-    """
-    upper = sum(1 for c in text if c.isupper())
-    lower = sum(1 for c in text if c.islower())
-    punctuation = sum(1 for c in text if c in string.punctuation)
-    spaces = sum(1 for c in text if c.isspace())
-    digits = sum(1 for c in text if c.isdigit())
+    for c in text:
+        if c.isupper():
+            upper += 1
+        elif c.islower():
+            lower += 1
+        elif c.isdigit():
+            digits += 1
+        elif c.isspace():
+            space += 1
+        elif c in PUNCT:
+            punct += 1
 
     print(f"The text contains {len(text)} characters:")
     print(f"{upper} upper letters")
     print(f"{lower} lower letters")
-    print(f"{punctuation} punctuation marks")
-    print(f"{spaces} spaces")
-    print(f"{digits} digits")
-
+    print(f"{digits} punctuation marks")
+    print(f"{space} spaces")
+    print(f"{punct} digits")
 
 def main() -> None:
-    """
-    Main entry point of the program.
-
-    Prompts the user for text input and calls the count_characters function.
-    Handles unexpected errors gracefully.
-    """
     try:
-        text = input("What is the text to count?\n")
-        count_characters(text)
+        args = sys.argv[1:]
+
+        if len(args) > 1:
+            raise AssertionError("More is the text to count?")
+        
+        if len(args) == 1:
+            text = args[0]
+        else:
+            text = input("What is the text to count?\n")
+        
+        count_chars(text)
+
+    except AssertionError as error:
+        print(error)
     except Exception as error:
         print(f"Error: {error}")
-
 
 if __name__ == "__main__":
     main()
