@@ -1,5 +1,6 @@
 import os
 
+
 def ft_tqdm(lst: range) -> None:
     """
     Display a progress bar while iterating over a range.
@@ -10,10 +11,10 @@ def ft_tqdm(lst: range) -> None:
         percent = int((count / total) * 100)
         width = os.get_terminal_size().columns - 20
         filled = int(width * count / total)
-        bar = "=" * filled + ">" + " " * (width - filled - 1)
+        bar = "=" * filled + " " * (width - filled - 1)
 
         print(
-            f"\r{percent:3d}%|{bar}|",
+            f"\r{percent:3d}%|{bar}|  {count + 1} / {total}",
             end="",
             flush=True
         )
