@@ -19,7 +19,7 @@ ft_set.add("Bangkok!")
 
 ft_dict["Hello"] = "42Bangkok!"
 
-print(ft_list)
-print(ft_tuple)
-print(ft_set)
-print(ft_dict)
+print(f"ft_list  : {ft_list}")
+print(f"ft_tuple : {ft_tuple}")
+print(f"ft_set   : {ft_set}")
+print(f"ft_dict  : {ft_dict}")
