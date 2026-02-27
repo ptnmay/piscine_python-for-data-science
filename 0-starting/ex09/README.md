@@ -5,9 +5,18 @@ to count occurrences of a value in a list.
 
 ## Installation
 
+Build the package:
+```bash
+python3 -m build
+```
+
+Install from source:
 ```bash
 pip install .
-python3 -m build
+```
+
+Or install from built files:
+```bash
 pip install ./dist/ft\_package-0.0.1.tar.gz
 pip install ./dist/ft\_package-0.0.1-py3-none-any.whl
 ```
@@ -22,15 +31,15 @@ pip uninstall ft_package
 
 ```
 ft_package
-├── LICENSE
-├── README.md
 ├── ft_package
 │   ├── __init__.py
 │   └── count_in_list.py
+├── LICENSE
 ├── pyproject.toml
+├── README.md
 ```
 
-## Check Pakage
+## Check Package
 ```bash
 pip show -v ft_package  
 ```
@@ -40,7 +49,9 @@ pip show -v ft_package
 ```python
 from ft_package import count_in_list
 
+# Count how many times "toto" appears in the list
 print(count_in_list(["toto", "tata", "toto"], "toto"))
+# Output: 2
 ```
 
 ## Contributing
