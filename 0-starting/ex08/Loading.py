@@ -2,26 +2,24 @@ import os
 
 
 def ft_tqdm(lst: range) -> None:
-    """
-    Display a progress bar while iterating over a range.
-    """
     total = len(lst)
-    count = 0
-    for item in lst:
-        percent = int((count / total) * 100)
-        width = os.get_terminal_size().columns - 20
-        filled = int(width * count / total)
-        bar = "=" * filled + " " * (width - filled - 1)
 
+    try:
+        width = os.get_terminal_size().columns
+    except OSError:
+        width = 80
+    bar_length = width - 40
+    if bar_length < 10:
+        bar_length = 10
+    for i, item in enumerate(lst):
+        percent = (i + 1) / total * 100
+        filled = int(bar_length * (i + 1) / total)
+        bar = "=" * filled
+        bar += " " * (bar_length - len(bar))
         print(
-            f"\r{percent:3d}%|{bar}|  {count + 1} / {total}",
-            end="",
+            f"{percent:3.0f}%|{bar}| {i + 1}/{total}",
+            end="\r",
             flush=True
         )
-
         yield item
-        count += 1
-
-    width = os.get_terminal_size().columns - 20
-    bar = "=" * width
-    print(f"\r100%|{bar}|")
+    print()
