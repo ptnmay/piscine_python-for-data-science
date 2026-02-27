@@ -7,6 +7,9 @@ to count occurrences of a value in a list.
 
 ```bash
 pip install .
+python3 -m build
+pip install ./dist/ft\_package-0.0.1.tar.gz
+pip install ./dist/ft\_package-0.0.1-py3-none-any.whl
 ```
 
 ## Clean & Uninstall
