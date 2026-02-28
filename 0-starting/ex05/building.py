@@ -6,9 +6,6 @@ A program that counts character types in a given text.
 
 import sys
 
-# manual punctuation list (cannot use string module)
-PUNCT = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-
 
 def count_chars(text: str) -> None:
     """
@@ -19,6 +16,7 @@ def count_chars(text: str) -> None:
     digits = 0
     punct = 0
     space = 0
+    PUNCT = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
     for c in text:
         if c.isupper():
@@ -60,8 +58,6 @@ def main() -> None:
 
     except AssertionError as error:
         print(f"AssertionError: {error}")
-    except Exception as error:
-        print(f"Error: {error}")
 
 
 if __name__ == "__main__":
