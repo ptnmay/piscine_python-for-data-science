@@ -21,20 +21,18 @@ def main() -> None:
         if len(sys.argv) != 3:
             raise AssertionError("the arguments are bad")
 
-        text, num = sys.argv[1], sys.argv[2]
+        text = sys.argv[1]
 
-        if not num.isdigit():
-            raise AssertionError("the arguments are bad")
-
-        n = int(num)
+        try:
+            n = int(sys.argv[2])
+        except ValueError:
+            raise AssertionError("argument is not an integer")
         words = text.split()
         result = list(ft_filter(lambda w: len(w) > n, words))
         print(result)
 
     except AssertionError as error:
         print(f"AssertionError: {error}")
-    except Exception as error:
-        print(f"Error: {error}")
 
 
 if __name__ == "__main__":
