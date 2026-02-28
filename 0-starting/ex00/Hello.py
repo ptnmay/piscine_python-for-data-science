@@ -1,25 +1,24 @@
 ft_list = ["Hello", "tata!"]
 ft_tuple = ("Hello", "toto!")
 ft_set = {"Hello", "tutu!"}
-ft_dict = {"Hello" : "titi!"}
+ft_dict = {"Hello": "titi!"}
 
-
+# list
 ft_list[1] = "World!"
 
-#rebuild
-# ft_tuple = (ft_tuple[0],"42Hongkong")
-
+# tuple
 tmp_list = list(ft_tuple)
 tmp_list[1] = "Thailand!"
 ft_tuple = tuple(tmp_list)
 
-#print order is unpredictable
+# set
 ft_set.remove("tutu!")
 ft_set.add("Bangkok!")
 
+# dict
 ft_dict["Hello"] = "42Bangkok!"
 
-print(f"ft_list  : {ft_list}")
-print(f"ft_tuple : {ft_tuple}")
-print(f"ft_set   : {ft_set}")
-print(f"ft_dict  : {ft_dict}")
+print(ft_list)
+print(ft_tuple)
+print(ft_set)
+print(ft_dict)
