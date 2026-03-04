@@ -30,30 +30,25 @@ def main() -> None:
     """
     Main entry point of program.
     """
-    try:
-        if len(sys.argv) != 2:
-            raise AssertionError("the arguments are bad")
-        text = sys.argv[1]
-        text = text.upper()
-
-        for char in text:
-            if not (char.isalnum() or char == " "):
-                raise AssertionError("the arguments are bad")
-        morse_dict = get_morse()
-        result = []
-
-        for char in text:
-            if char == " ":
-                result.append("/")
-            else:
-                result.append(morse_dict[char])
-        print(" ".join(result))
-
-    except AssertionError as error:
-        print(f"AssertionError: {error}")
-    except Exception as error:
-        print(f"Error: {error}")
+    if len(sys.argv) != 2:
+        raise AssertionError("Invalid arguments")
+    text = sys.argv[1].upper()
+    morse_dict = get_morse()
+    result = []
+    for char in text:
+        if char == " ":
+            result.append("/")
+        elif char in morse_dict:
+            result.append(morse_dict[char])
+        else:
+            raise AssertionError(
+                "Only letters (A-Z) and digits (0-9) are allowed."
+            )
+    print(" ".join(result))
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except AssertionError as e:
+        print(f"AssertionError: {e}")

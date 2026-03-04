@@ -1,9 +1,3 @@
-"""
-building.py
-
-A program that counts character types in a given text.
-"""
-
 import sys
 
 
@@ -13,9 +7,9 @@ def count_chars(text: str) -> None:
     """
     upper = 0
     lower = 0
-    digits = 0
     punct = 0
     space = 0
+    digits = 0
     PUNCT = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
     for c in text:
@@ -41,24 +35,22 @@ def count_chars(text: str) -> None:
 def main() -> None:
     """
     Main entry point of the program.
-    Handles arguments, input, and error catching.
     """
-    try:
-        args = sys.argv[1:]
+    if len(sys.argv) > 2:
+        raise AssertionError("More than one argument is provided")
 
-        if len(args) > 1:
-            raise AssertionError("More than one argument is provided")
+    if len(sys.argv) == 2:
+        text = sys.argv[1]
+    else:
+        text = input("What is the text to count?\n")
 
-        if len(args) == 1:
-            text = args[0]
-        else:
-            text = input("What is the text to count?\n")
-
-        count_chars(text)
-
-    except AssertionError as error:
-        print(f"AssertionError: {error}")
+    count_chars(text)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except AssertionError as error:
+        print(f"AssertionError: {error}")
+
+#PUNCT is constant variable

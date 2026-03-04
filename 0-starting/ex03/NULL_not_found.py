@@ -1,23 +1,30 @@
 def NULL_not_found(object: any) -> int:
+    ty = object.__class__
     if object is None:
-        print(f"Nothing: {object} {type(object)}")
+        print(f"Nothing: None {ty}")
         return 0
-    elif isinstance(object, float) and object != object:
-        print(f"Cheese: {object} {type(object)}")
+    elif object != object:
+        print(f"Cheese: nan {ty}")
         return 0
-    elif object == 0 and type(object) is int:
-        print(f"Zero: {object} {type(object)}")
+    elif object is False:
+        print(f"Fake: False {ty}")
         return 0
-    elif object == "" and type(object) is str:
-        print(f"Empty: {type(object)}")
+    elif object == 0:
+        print(f"Zero: 0 {ty}")
         return 0
-    elif object is False and type(object) is bool:
-        print(f"Fake: {object} {type(object)}")
+    elif object == "":
+        print(f"Empty: {ty}")
         return 0
     else:
         print("Type not Found")
         return 1
 
+"""
+'.__class__' is an attribute of all obj in python, it's not a function
 
-if __name__ == "__main__":
-    pass
+function is for do something. (verb)
+attribute is value inside object. didn't do anything just show the value. (noun)
+
+NaN (Not a Number) is value that we don't know.
+NaN != Nan is true because we nerver know is it itself. behavior by IEEE.
+"""

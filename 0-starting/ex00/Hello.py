@@ -3,19 +3,19 @@ ft_tuple = ("Hello", "toto!")
 ft_set = {"Hello", "tutu!"}
 ft_dict = {"Hello": "titi!"}
 
-# list
+# list -> changable, index, duplicate
 ft_list[1] = "World!"
 
-# tuple
+# tuple -> unchangable, index, duplicate
 tmp_list = list(ft_tuple)
 tmp_list[1] = "Thailand!"
 ft_tuple = tuple(tmp_list)
 
-# set
+# set -> unchangable, unindex, unique
 ft_set.remove("tutu!")
 ft_set.add("Bangkok!")
 
-# dict
+# dict -> changable, index, unique, like dictionary
 ft_dict["Hello"] = "42Bangkok!"
 
 print(ft_list)
